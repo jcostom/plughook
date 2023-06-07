@@ -18,7 +18,7 @@ DEBUG = int(os.getenv('DEBUG', 0))
 
 # Version Info
 VER = "0.1"
-USER_AGENT = f"plughook/{VER}"
+APP_VERSION = f"plughook/{VER}"
 
 # Setup logger
 logger = logging.getLogger()
@@ -34,6 +34,8 @@ formatter = logging.Formatter('[%(levelname)s] %(asctime)s %(message)s',
                               datefmt='[%d %b %Y %H:%M:%S %Z]')
 ch.setFormatter(formatter)
 logger.addHandler(ch)
+
+logger.info(f'Startup: {APP_VERSION}')
 
 
 class Hooks:
