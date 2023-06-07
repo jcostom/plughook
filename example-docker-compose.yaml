@@ -1,0 +1,19 @@
+---
+services:
+  plughook:
+    image: ghcr.io/jcostom/plughook:latest
+    container_name: plughook
+    user: 1000:1000
+    environment:
+      - PLUG=myplug.mysite.org # or IP is fine too
+      - ON_HOOK=QcBeYkiUkA6NJjigxua_y8wzaE7Q2-3b
+      - OFF_HOOK=9r-K4uwRC.cN6WVRAa.ocJYHc-U6Th6V
+      - TZ=America/New_York
+      - DEBUG=0
+    restart: unless-stopped
+    networks:
+      - containers
+
+networks:
+  containers:
+    external: true
