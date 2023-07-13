@@ -17,23 +17,15 @@ OFF_HOOK = os.getenv('OFF_HOOK', 'offhook')
 DEBUG = int(os.getenv('DEBUG', 0))
 
 # Version Info
-VER = "0.1"
+VER = "0.2"
 APP_VERSION = f"plughook/{VER}"
 
 # Setup logger
+LOG_LEVEL = 'DEBUG' if DEBUG else 'INFO'
+logging.basicConfig(level=LOG_LEVEL,
+                    format='[%(levelname)s] %(asctime)s %(message)s',
+                    datefmt='[%d %b %Y %H:%M:%S %Z]')
 logger = logging.getLogger()
-ch = logging.StreamHandler()
-if DEBUG:
-    logger.setLevel(logging.DEBUG)
-    ch.setLevel(logging.DEBUG)
-else:
-    logger.setLevel(logging.INFO)
-    ch.setLevel(logging.INFO)
-
-formatter = logging.Formatter('[%(levelname)s] %(asctime)s %(message)s',
-                              datefmt='[%d %b %Y %H:%M:%S %Z]')
-ch.setFormatter(formatter)
-logger.addHandler(ch)
 
 logger.info(f'Startup: {APP_VERSION}')
 
