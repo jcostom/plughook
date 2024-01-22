@@ -11,7 +11,7 @@ ARG PYVER=3.12
 
 EXPOSE 8080/tcp
 
-COPY --from=builder /usr/local/lib/$PYVER/site-packages/ /usr/local/lib/$PYVER/site-packages/
+COPY --from=builder /usr/local/lib/python$PYVER/site-packages/ /usr/local/lib/python$PYVER/site-packages/
 
 RUN mkdir /app
 COPY ./app.py /app
