@@ -17,7 +17,7 @@ OFF_HOOK = os.getenv('OFF_HOOK', 'offhook')
 DEBUG = int(os.getenv('DEBUG', 0))
 
 # Version Info
-VER = "0.3.1"
+VER = "0.3.2"
 APP_VERSION = f"plughook/{VER}"
 
 # Setup logger
