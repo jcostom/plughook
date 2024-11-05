@@ -2,7 +2,7 @@ FROM python:3.13.0-slim-bookworm AS builder
 
 ARG TZ=America/New_York
 RUN apt update && apt -yq install gcc make
-RUN pip install flask python-kasa waitress
+RUN pip install flask python-kasa==0.6.2.1 waitress
 
 FROM python:3.13.0-slim-bookworm
 
