@@ -1,13 +1,13 @@
-FROM python:3.14.8-slim-bookworm AS builder
+FROM python:3.15.2-slim-bookworm AS builder
 
 ARG TZ=America/New_York
 RUN apt update && apt -yq install gcc make
 RUN pip install flask python-kasa==0.6.2.1 waitress
 
-FROM python:3.14.8-slim-bookworm
+FROM python:3.15.2-slim-bookworm
 
 ARG TZ=America/New_York
-ARG PYVER=3.14
+ARG PYVER=3.15
 
 EXPOSE 8080/tcp
 
